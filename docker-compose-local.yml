@@ -3,8 +3,11 @@ version: "3"
 services:
   jenkins-local:
     image: jenkins/jenkins:lts
+    container_name: jenkins_local
     ports:
       - 8080:8080
       - 50000:50000
     volumes:
       - ./jenkins_home:/var/jenkins_home
+    environment:
+      - VIRTUAL_HOST=jenkins.local
