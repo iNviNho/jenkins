@@ -2,11 +2,12 @@ version: "3"
 
 services:
   jenkins-local:
-    image: jenkins/jenkins:lts
+    image: registry.vladino.me:5000/jenkins:production
     container_name: jenkins_local
     ports:
       - 8080:8080
     volumes:
       - ./jenkins_home:/var/jenkins_home
+      - /var/run/docker
     environment:
       - VIRTUAL_HOST=jenkins.local
